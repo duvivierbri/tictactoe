@@ -42,8 +42,8 @@ public class TicTacToe_GUI extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			JButton button = (JButton)e.getSource();
 			
-			//button.setText("okay");
-			placeMarker(1,1);
+			button.setText("okay"); //tester to ensure each button is being tended to on it's own
+			//for loop to go through all buttons and set text at that button
 			
 		}
 
