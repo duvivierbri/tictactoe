@@ -1,5 +1,5 @@
-package TTT;
+package tictacpackage;
 
 public class Player {
-
+	
 }

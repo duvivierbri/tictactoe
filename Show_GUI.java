@@ -1,4 +1,4 @@
-package TTT;
+package tictacpackage;
 
 import javax.swing.JFrame;
 
