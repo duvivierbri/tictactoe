@@ -108,6 +108,9 @@ public class TicTacToe_GUI extends JFrame{
 		public boolean isWinner() {
 			int Onum = 0;
 			int Xnum = 0;
+			int c = 0;
+			
+			//~*~ EACH FOR LOOP DOES A DIFFERENT CHECK FOR A WINNER ~*~
 			
 			//This for loop checks the rows
 			for(int row=0; row<board.length; row++){	
@@ -136,6 +139,8 @@ public class TicTacToe_GUI extends JFrame{
 			}
 			//End of row check loop~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 			
+			
+			
 			//This for loop checks the columns
 			for(int col=0; col<board.length; col++){	
 				Onum = 0;
@@ -163,7 +168,85 @@ public class TicTacToe_GUI extends JFrame{
 			}
 			//End of column check~ ~ ~ ~ ~ ~ ~ ~ 
 			
-			//MISSING DIAGONAL CHECK!!
+			
+			
+			//diagonal check (left to right)
+			for(int i=0; i<board.length; i++){	
+					if (board[i][i].getText().equalsIgnoreCase("o")) {
+						Onum++;
+					} else if (board[i][i].getText().equalsIgnoreCase("x")) {
+						Xnum++;
+					}
+				
+				//This displays winner
+				if (Xnum == 3) {
+					System.out.println("X wins!");
+					winner = player1;
+					return true;
+				}
+				
+				if (Onum == 3) {
+					System.out.println("O wins!");
+					winner = player2;
+					return true;
+				}
+			} //end of diagonal check (left to right)
+			
+			
+			
+			//diagonal check (right to left) **PROBLEM**
+			/* ATTEMPT ONE!! = i = row; n = column
+			for(int i=0; i<board.length; i++){
+				Xnum = 0;
+				Onum = 0;
+				for(int n = 2; n>=0; n--){
+					if (board[i][n].getText().equalsIgnoreCase("o")) {
+						Onum++;
+					} else if (board[i][n].getText().equalsIgnoreCase("x")) {
+						Xnum++;
+					}
+				}
+				//This displays winner
+				if (Xnum == 3) {
+					System.out.println("X wins!");
+					winner = player1;
+					return true;
+				}
+				
+				if (Onum == 3) {
+					System.out.println("O wins!");
+					winner = player2;
+					return true;
+				}
+			} //end of diagonal check (right to left)
+			*/
+			
+			//diagonal right to left (second attempt)
+			for(int r = 0; r < board.length;r++) {
+				while( (r<3) && (c >= 0) ) {
+					if (board[r][c].getText().equalsIgnoreCase("o")) {
+						Onum++;
+					} else if (board[r][c].getText().equalsIgnoreCase("x")) {
+						Xnum++;
+					}
+					r++;
+					c--;
+					System.out.println(Onum + "is Onum, " + Xnum + " is Xnum.");
+				}
+				
+				if (Xnum == 3) {
+					System.out.println("X wins!");
+					winner = player1;
+					return true;
+				}
+				
+				if (Onum == 3) {
+					System.out.println("O wins!");
+					winner = player2;
+					return true;
+				}
+				
+			}
 			
 			return false;
 		}

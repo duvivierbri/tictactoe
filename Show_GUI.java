@@ -12,9 +12,9 @@ public class Show_GUI {
 				
 				TicTacToe_GUI gui = new TicTacToe_GUI();
 				gui.setVisible(true);
-				gui.setResizable(true);
+				gui.setResizable(false);
 				gui.pack();
-//				gui.setSize(500,500);
+				gui.setSize(500,500);
 				gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 		});
